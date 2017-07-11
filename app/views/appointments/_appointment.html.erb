@@ -1,0 +1,13 @@
+<li id="appointment-<%= appointment.id %>">
+  <span class="user"><%= link_to appointment.user.name, appointment.user %></span>
+  <span class="title">
+    <%= appointment.title %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(appointment.created_at) %> ago.
+    <% if current_user?(appointment.user) %>
+      <%= link_to "delete", appointment, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>

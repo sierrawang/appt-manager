@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+orange:
+  title: 'first'
+  user: michael
+  appt_time: 2017-07-10 21:10:33
+
+two:
+  title: 'second'
+  user: michael
+  appt_time: 2017-07-10 21:10:34
