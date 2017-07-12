@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :logged_in_user, only: [:create, :edit, :destroy, :update]
+  before_action :correct_user,   only: [:create, :edit, :destroy, :update]
 
   def create
     @appointment = current_user.appointments.build(appointment_params)
@@ -12,10 +12,20 @@ class AppointmentsController < ApplicationController
       render 'static_pages/home'
     end
   end
+  
+  def edit
+    @appointment = Appointment.find(params[:id])
+  end
 
   def destroy
     @appointment.destroy
     flash[:success] = "Appointment deleted"
+    redirect_to request.referrer || root_url
+  end
+  
+  def update
+    @appointment.update_attributes(appointment_params)
+    flash[:success] = "Appointment updated!"
     redirect_to request.referrer || root_url
   end
   
