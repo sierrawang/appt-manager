@@ -3,6 +3,7 @@
   <span class="title">
     <%= appointment.title %>
   </span>
+  <span class="appt_time"><%= appointment.appt_time %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(appointment.created_at) %> ago.
     <% if current_user?(appointment.user) %>

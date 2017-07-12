@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
   private
 
     def appointment_params
-      params.require(:appointment).permit(:title)
+      params.require(:appointment).permit(:title, :appt_time)
     end
     
     def correct_user
