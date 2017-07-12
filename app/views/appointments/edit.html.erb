@@ -1,0 +1,18 @@
+<% provide(:title, "Edit appointment") %>
+<h1>Update your Appointment</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@appointment) do |f| %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :appt_time %>
+      <%= f.email_field :appt_time, class: 'form-control' %>
+
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

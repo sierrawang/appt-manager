@@ -9,6 +9,7 @@
     <% if current_user?(appointment.user) %>
       <%= link_to "delete", appointment, method: :delete,
                                        data: { confirm: "You sure?" } %>
+      <%= link_to "edit", edit_appointment_path(appointment) %>
     <% end %>
   </span>
 </li>
