@@ -12,6 +12,7 @@
       <h3>Appointments (<%= @user.appointments.count %>)</h3>
       <ol class="appointments">
         <%= render @user.appointments %>
+        <%= link_to "comment on an appointment!", new_user_comment_path %>
       </ol>
     <% end %>
   </div>
