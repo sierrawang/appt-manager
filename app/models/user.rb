@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :appointments, dependent: :destroy
+  has_many :user_comments
   before_save { name.downcase! }
   validates :name,  presence: true, length: { maximum: 50, minimum: 1 }, 
              uniqueness: { case_sensitive: false }

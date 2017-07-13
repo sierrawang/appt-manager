@@ -3,6 +3,7 @@
   <span class="title">
     <%= appointment.title %>
   </span>
+  <span class="appt_time">Appointment Number: <%= appointment.id %></span>
   <span class="appt_time"><%= appointment.appt_time %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(appointment.created_at) %> ago.
@@ -12,4 +13,20 @@
       <%= link_to "edit", edit_appointment_path(appointment) %>
     <% end %>
   </span>
+  <% if appointment.user_comments.any? %>
+    <div class="col-md-12">
+      <h5>Comments</h5>
+      <ol class="comments">
+        <% appointment.user_comments.each do |user_comment| %>
+          <li id="user_comment-<%= user_comment.id %>">
+            <span class="user"><%= link_to user_comment.user.name, user_comment.user %></span>
+            <span class="content"><%= user_comment.content %></span>
+            <span class="timestamp">
+              Posted <%= time_ago_in_words(user_comment.created_at) %> ago.
+            </span>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
 </li>
