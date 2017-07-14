@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
   before_action :correct_user,   only: [:create, :edit, :destroy, :update]
 
   def create
+    byebug
     @appointment = current_user.appointments.build(appointment_params)
     if @appointment.save
       flash[:success] = "Appointment created!"
