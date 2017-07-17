@@ -7,7 +7,7 @@ class UserCommentsController < ApplicationController
     if @user_comment.save
       #current_user.user_comments << @user_comment
       flash[:success] = "Comment posted!"
-      redirect_to appointments_url
+      redirect_to new_user_comment_path
     else
       flash[:danger] = "Comment FAIL!"
       redirect_to new_user_comment_path
