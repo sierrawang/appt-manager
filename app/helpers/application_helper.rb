@@ -12,12 +12,13 @@ module ApplicationHelper
   
   def time_diff
     flash_messages = []
-    current_user.appointments.each do |appt|
-      unless appt.appt_time.nil?
-        diff = appt.appt_time - Time.now
-        diff = diff/60000
-        if diff < 60 && diff > 0
-          flash_messages << "Appointment in " + diff.to_s + " minutes"
+    unless current_user.nil?
+      current_user.appointments.each do |appt|
+        unless appt.appt_time.nil?
+          diff = ((appt.appt_time - Time.now) / 1.minute ).round
+          if diff < 60 && diff > 0
+            flash_messages << "Appointment in " + diff.to_s + " minutes"
+          end
         end
       end
     end
